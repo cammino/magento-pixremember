@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+        <pixremember translate="label" module="pixremember">
+            <label>Lembrete de PIX</label>
+            <sort_order>20</sort_order>
+        </pixremember>
+    </tabs>
+	<sections>
+		<pixremember translate="label" module="pixremember">
+			<label>Configurações</label>
+            <tab>pixremember</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+			<groups>
+				<general translate="label">
+					<label>Geral</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>0</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<hours translate="label">
+							<label>Enviar lembrete após horas</label>
+							<comment>A mensagem será enviada após X horas antes do PIX vencer. Se não informado, o valor padrão utilizado será de 24 horas</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hours>
+
+						<twilio_account_sid translate="label">
+                            <label>Twilio Account SID</label>
+                            <frontend_type>text</frontend_type>
+							<comment>Para poder enviar mensagens pelo whatsapp pelo Twilio</comment>
+                            <sort_order>41</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </twilio_account_sid>
+						
+						<twilio_auth_token translate="label">
+                            <label>Twilio Auth Token</label>
+                            <frontend_type>text</frontend_type>
+							<comment>Para poder enviar mensagens pelo whatsapp pelo Twilio</comment>
+                            <sort_order>42</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </twilio_auth_token>
+					
+						<active_log translate="label">
+							<label>Habilitar logs</label>
+							<comment>Os logs serão salvos em /var/log/pixremember.log</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>999999</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active_log>
+					</fields>
+				</general>
+
+				<email translate="label">
+					<label>Email</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<notify translate="label">
+							<label>Notificar por Email</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notify>
+
+						<subject translate="label">
+                            <label>Assunto do email</label>
+							<comment>Você pode utilizar as variáveis: {{nome_da_loja}} {{nome_do_cliente}}"</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </subject>
+
+						<body translate="label">
+                            <label>Corpo do email</label>
+							<comment>Você pode utilizar as variáveis: {{nome_da_loja}} {{nome_do_cliente}}"</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body>
+					</fields>
+				</email>
+
+				<whatsapp translate="label">
+					<label>Whatsapp</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<notify translate="label">
+							<label>Notificar por Whatsapp</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notify>
+
+						<twilio_number translate="label">
+                            <label>Twilio Whatsapp Number</label>
+                            <frontend_type>text</frontend_type>
+							<comment>Para poder enviar mensagens pelo whatsapp</comment>
+                            <sort_order>43</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </twilio_number>
+
+						<body translate="label">
+                            <label>Corpo da mensagem do Whatsapp</label>
+                            <frontend_type>textarea</frontend_type>
+							<comment>Você pode utilizar as variáveis: {{nome_da_loja}} {{nome_do_cliente}}"</comment>
+                            <sort_order>44</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body>
+					</fields>
+				</whatsapp>
+
+				<sms translate="label">
+					<label>SMS</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>3</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<notify translate="label">
+							<label>Notificar por SMS</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</notify>
+
+						<twilio_number translate="label">
+                            <label>Twilio SMS Number</label>
+                            <frontend_type>text</frontend_type>
+							<comment>Para poder enviar mensagens por sms</comment>
+                            <sort_order>43</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </twilio_number>
+
+						<body translate="label">
+                            <label>Corpo da mensagem do SMS</label>
+                            <frontend_type>textarea</frontend_type>
+							<comment>Você pode utilizar as variáveis: {{nome_da_loja}} {{nome_do_cliente}}"</comment>
+                            <sort_order>44</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body>
+					</fields>
+				</sms>
+
+			</groups>
+		</pixremember>
+	</sections>
+</config>

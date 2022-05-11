@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Cammino_Pixremember>
+            <version>0.1.0</version>
+        </Cammino_Pixremember>
+    </modules>
+    <global>
+        <helpers>
+            <pixremember>
+                <class>Cammino_Pixremember_Helper</class>
+            </pixremember>
+        </helpers>
+        <models>
+            <pixremember>
+                <class>Cammino_Pixremember_Model</class>
+            </pixremember>
+        </models>
+        <template>
+            <email>
+                <pixremember_email module="pixremember">
+                    <label>PIX Remember</label>
+                    <file>pixremember.html</file>
+                    <type>html</type>
+                </pixremember_email>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <routers>
+            <pixremember>
+                <use>standard</use>
+                <args>
+                    <module>Cammino_Pixremember</module>
+                    <frontName>pixremember</frontName>
+                </args>
+            </pixremember>
+        </routers>
+    </frontend>
+    <crontab>
+        <jobs>
+            <pixremember_job>
+                <schedule>
+                    <cron_expr>0 * * * *</cron_expr>
+                    <!-- <cron_expr>*/2 * * * *</cron_expr> -->
+                </schedule>
+                <run>
+                    <model>pixremember/job::notify</model>
+                </run>
+            </pixremember_job>
+        </jobs>
+    </crontab>
+    <default>
+        <sales_email>
+            <pixremember>
+                <hours>24</hours>
+                <email_subject></email_subject>
+                <email_body></email_body>
+            </pixremember>
+        </sales_email>    
+    </default>
+</config>
