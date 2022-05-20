@@ -40,9 +40,13 @@ class Cammino_Pixremember_Model_Job
         $hours = Mage::helper("pixremember")->getHours();
 
         $payments->getSelect()
+            ->joinInner(array('order_table' => Mage::getSingleton('core/resource')->getTableName('sales/order')),
+            'order_table.entity_id = main_table.parent_id',
+            array())
+            ->where('method = "openpix_pix"')
             ->where('amount_paid IS NULL')
-            ->where('DATE_ADD(created_at, INTERVAL -'.$hours.' HOUR) < NOW()')
-            ->where('((additional_data IS NULL) OR (additional_data NOT LIKE \'%pixremember%\'))');
+            ->where('order_table.status = "pending"')
+            ->where('WHERE order_table.created_at < DATE_SUB(NOW(),INTERVAL '.$hours.' HOUR)');
 
         echo $payments->getSelect()->__toString();
 
