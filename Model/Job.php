@@ -46,7 +46,7 @@ class Cammino_Pixremember_Model_Job
             ->where('method = "openpix_pix"')
             ->where('amount_paid IS NULL')
             ->where('order_table.status = "pending"')
-            ->where('WHERE order_table.created_at < DATE_SUB(NOW(),INTERVAL '.$hours.' HOUR)');
+            ->where('order_table.created_at < DATE_SUB(NOW(),INTERVAL '.$hours.' HOUR)');
 
         echo $payments->getSelect()->__toString();
 
